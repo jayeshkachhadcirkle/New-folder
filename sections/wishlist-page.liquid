@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="wishlist-con wishlist-page">
+    <h2>My Wishlist</h2>
+    <div class="wishlist-header flex align-center justify-between">
+      {% comment %} <span class="count" id="wish-count">0</span> {% endcomment %}
+  <div class="product-row wish-grid-custom 
+    resource-list ">
+  
+  </div>
+  </div>
+</div>
+
+{%  javascript  %} 
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadWishlistProducts();
+});
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Wishlist Sec",
+  "settings": []
+}
+{% endschema %}
