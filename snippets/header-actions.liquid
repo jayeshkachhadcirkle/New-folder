@@ -12,12 +12,15 @@
     {% render 'account-drawer' %}
   {% endif %}
 
+
   <div class="wishheader">
-    <a href="/pages/wishlist">
-      {{ 'like20.svg' | asset_url | img_tag }}
-      <wish-counter class="count" id="wish-count"></wish-counter>
-    </a>
-  </div>
+  <a href="/pages/wishlist">
+    {{ 'like20.svg' | asset_url | img_tag }}
+  </a>
+  <wish-counter class="count" id="wish-count"></wish-counter>
+</div>
+
+
 
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     {% render 'cart-drawer' %}

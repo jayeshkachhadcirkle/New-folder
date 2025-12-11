@@ -65,7 +65,46 @@
             {% when 'localization' %}
               {{ localization }}
             {% when 'search' %}
-              {{ search }}
+              {% comment %} {{ search }} {% endcomment %}
+
+              <form
+                action="/search"
+                method="get"
+                role="search"
+                class="predictive-search-form"
+                ref="form"
+                on:keydown="/onSearchKeyDown"
+              >
+                <div class="predictive-search-form__header">
+                  <div class="predictive-search-form__header-inner">
+                    <label for="cmdk-input" class="visually-hidden">Search</label>
+                    <input
+                      class="search-input"
+                      id="cmdk-input"
+                      type="search"
+                      name="q"
+                      role="combobox"
+                      aria-expanded="false"
+                      aria-owns="predictive-search-results"
+                      aria-controls="predictive-search-results"
+                      aria-haspopup="listbox"
+                      aria-autocomplete="list"
+                      autocomplete="off"
+                      placeholder="Search"
+                      ref="searchInput"
+                      on:input="/search"
+                      on:keydown="/onSearchKeyDown"
+                    >
+                    <input name="options[prefix]" type="hidden" value="last">
+                    <span class="svg-wrapper predictive-search__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="4.75" stroke="currentColor" stroke-width="var(--icon-stroke-width)"></circle><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="var(--icon-stroke-width)" d="m12.5 12.5 3.25 3.25"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </form>
+
             {% when 'mobile_search' %}
               {{ mobile_search }}
             {% when 'actions' %}

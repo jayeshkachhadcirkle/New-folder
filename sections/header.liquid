@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign order = 'logo,menu,localization,search,mobile_search,actions'
 
@@ -437,6 +435,7 @@
   .header__column {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     /* on mobile, header__column nodes are ignored to create a new grid-template-area based on all visible content */
     @media screen and (max-width: 749px) {
@@ -471,7 +470,7 @@
 
   .header__columns {
     /* Three column layout */
-    --header-left: 1fr;
+    --header-left: 3fr;
     --header-center: auto;
     --header-right: 1fr;
     --header-template-columns: var(--header-left) var(--header-center) var(--header-right);

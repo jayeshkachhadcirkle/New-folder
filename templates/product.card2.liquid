@@ -1,41 +1,48 @@
-{% layout: none %}
+{% layout : none %}
 
 <div class="pro-card-view2" style="width: 20%;">
-    
-<style data-shopify="">
-  
-</style>
+  <style data-shopify=""></style>
 
-<product-card-link data-product-id="{{ product.id }}" data-featured-media-url="{{ product.featured_image }}" data-product-transition="true"><product-card class="product-card" data-product-id="{{ product.id }}" data-product-variants-size="{{ product.variants_count }}" id="card2ttt-{{ product.id }}" data-product-transition="true">
-  <a id="{{ product.id }}" href="{{ product.url }}" class="product-card__link" ref="productCardLink">
-    <span class="visually-hidden">
-      {{ product.title }}
-    </span>
-  </a>
-  <div class="
-      product-card__content
-      layout-panel-flex--column
-      product-grid__card
-      spacing-style
-      border-style
-      gap-style
-      
-    " style="
-      --border-width: 1px; --border-style: none; --border-color:
-    rgb(var(--color-border-rgb) / 1.0); --border-radius:
-    0px; 
-        --flex-direction: column; --flex-wrap: nowrap; --flex-wrap-mobile: wrap;
-    --horizontal-alignment: ; --vertical-alignment: ;
-    --vertical-alignment-mobile: ;
+  <product-card-link
+    data-product-id="{{ product.id }}"
+    data-featured-media-url="{{ product.featured_image }}"
+    data-product-transition="true"
+    ><product-card
+      class="product-card"
+      data-product-id="{{ product.id }}"
+      data-product-variants-size="{{ product.variants_count }}"
+      id="card2ttt-{{ product.id }}"
+      data-product-transition="true"
+    >
+      <a id="{{ product.id }}" href="{{ product.url }}" class="product-card__link" ref="productCardLink">
+        <span class="visually-hidden">
+          {{ product.title }}
+        </span>
+      </a>
+      <div
+        class="
+          product-card__content
+          layout-panel-flex--column
+          product-grid__card
+          spacing-style
+          border-style
+          gap-style
+        "
+        style="
+            --border-width: 1px; --border-style: none; --border-color:
+          rgb(var(--color-border-rgb) / 1.0); --border-radius:
+          0px;
+              --flex-direction: column; --flex-wrap: nowrap; --flex-wrap-mobile: wrap;
+          --horizontal-alignment: ; --vertical-alignment: ;
+          --vertical-alignment-mobile: ;
 
-      --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
-      --product-card-gap: 8px;
-      --quick-add-display: flex;
-      --quick-add-mobile-display: none;
-    ">
-
-
-    <like-button
+            --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
+            --product-card-gap: 8px;
+            --quick-add-display: flex;
+            --quick-add-mobile-display: none;
+        "
+      >
+        <like-button
           data-variant="{{ product.selected_or_first_available_variant.id }}"
           data-product="{{ product.id }}"
         >
@@ -49,209 +56,174 @@
           </a>
         </like-button>
 
-    
+        <div
+          ref="cardGallery"
+          class="card-gallery card-gallery-ARnFjSmxBQUNIbGpwT__card-gallery spacing-style border-style"
+          style="
+                --border-width: 1px; --border-style: none; --border-color:
+            rgb(var(--color-border-rgb) / 1.0); --border-radius:
+            0px;
 
-    <div ref="cardGallery" class="card-gallery card-gallery-ARnFjSmxBQUNIbGpwT__card-gallery spacing-style border-style" style="
-        --border-width: 1px; --border-style: none; --border-color:
-    rgb(var(--color-border-rgb) / 1.0); --border-radius:
-    0px; 
-
-    --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
-    --gallery-aspect-ratio: 4 / 5;
-  " data-product-id="{{ product.id }}" on:pointerenter="/previewImage" on:pointerleave="/resetImage" data-view-transition-to-main-product="" data-image-ratio="portrait">
-    <a class="contents" ref="cardGalleryLink" href="{{ product.url }}" aria-label="{{ product.title }}">
-      
-
-
-<slideshow-component ref="slideshow" style="--slideshow-timeline: {% for image in product.images %} --slide-{{ forloop.index }}, {% endfor %}; " initial-slide="0" infinite="" data-generic-media-size="1" disabled="false" actioned="" paused="">
-  
-  <slideshow-container ref="slideshowContainer">
-    
-      {% comment %} <slideshow-arrows position="center"><button class="
-    slideshow-control slideshow-control--previous
-    
-    
-    slideshow-control--style-arrow
-    button button-unstyled button-unstyled--transparent
-     flip-x
-  " aria-label="Previous slide" on:click="/previous" ref="previous">
-  <span class="svg-wrapper icon-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="var(--icon-stroke-width)" vector-effect="non-scaling-stroke" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"></path></svg>
-</span>
-</button>
-<button class="
-    slideshow-control slideshow-control--next
-    
-    
-    slideshow-control--style-arrow
-    button button-unstyled button-unstyled--transparent
-    
-  " aria-label="Next slide" on:click="/next" ref="next">
-  <span class="svg-wrapper icon-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="var(--icon-stroke-width)" vector-effect="non-scaling-stroke" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"></path></svg>
-</span>
-</button>
-</slideshow-arrows> {% endcomment %}
-
-    
-    
-    <slideshow-slides tabindex="-1" ref="scroller">
+            --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
+            --gallery-aspect-ratio: 4 / 5;
+          "
+          data-product-id="{{ product.id }}"
+          on:pointerenter="/previewImage"
+          on:pointerleave="/resetImage"
+          data-view-transition-to-main-product=""
+          data-image-ratio="portrait"
+        >
+          <a class="contents" ref="cardGalleryLink" href="{{ product.url }}" aria-label="{{ product.title }}">
+            <slideshow-component
+              ref="slideshow"
+              style="--slideshow-timeline: {% for image in product.images %} --slide-{{ forloop.index }}, {% endfor %}; "
+              initial-slide="0"
+              infinite=""
+              data-generic-media-size="1"
+              disabled="false"
+              actioned=""
+              paused=""
+            >
+              <slideshow-container ref="slideshowContainer">
+                {% comment %}
+                  <slideshow-arrows position="center"><button class="
+                      slideshow-control slideshow-control--previous
 
 
+                      slideshow-control--style-arrow
+                      button button-unstyled button-unstyled--transparent
+                       flip-x
+                    " aria-label="Previous slide" on:click="/previous" ref="previous">
+                    <span class="svg-wrapper icon-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="var(--icon-stroke-width)" vector-effect="non-scaling-stroke" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"></path></svg>
+                  </span>
+                  </button>
+                  <button class="
+                      slideshow-control slideshow-control--next
 
-    {% for image in product.images %}
 
-    <slideshow-slide ref="slides[]" aria-hidden="true" style="view-timeline-name: --slide-{{ forloop.index }}; --product-media-fit: cover;" class="product-media-container media-fit product-media-container--image" variant-image="" slide-id="{{ image.id }}" >  
-        <div class="product-media" style="--ratio: 1.0" data-media-id="{{ image.id }}">
+                      slideshow-control--style-arrow
+                      button button-unstyled button-unstyled--transparent
 
-            {{ image.src | image_url: width: 500, height: 500  | image_tag: alt: product.title, class: "product-media__image" }}
-    
+                    " aria-label="Next slide" on:click="/next" ref="next">
+                    <span class="svg-wrapper icon-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="var(--icon-stroke-width)" vector-effect="non-scaling-stroke" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"></path></svg>
+                  </span>
+                  </button>
+                  </slideshow-arrows>
+                {% endcomment %}
+
+                <slideshow-slides tabindex="-1" ref="scroller">
+                  {% for image in product.images %}
+                    <slideshow-slide
+                      ref="slides[]"
+                      aria-hidden="true"
+                      style="view-timeline-name: --slide-{{ forloop.index }}; --product-media-fit: cover;"
+                      class="product-media-container media-fit product-media-container--image"
+                      variant-image=""
+                      slide-id="{{ image.id }}"
+                    >
+                      <div class="product-media" style="--ratio: 1.0" data-media-id="{{ image.id }}">
+                        {{
+                          image.src
+                          | image_url: width: 500, height: 500
+                          | image_tag: alt: product.title, class: 'product-media__image'
+                        }}
+                      </div>
+                    </slideshow-slide>
+                  {% endfor %}
+                </slideshow-slides>
+              </slideshow-container>
+            </slideshow-component>
+          </a>
+
+          <div
+            class="product-badges product-badges--top-left"
+            style="
+              --badge-border-radius: 0px;
+              --badge-font-family: var(--font-accent--family); --badge-font-weight: var(--font-accent--weight); --badge-text-transform: uppercase;
+            "
+          ></div>
+
+          {% comment %} Put Quick Add Snippet HEre {% endcomment %}
+          {% render 'quick-add', product: product, section_id: 'directCArd2', block: 'directCard22'  %}
+
         </div>
-    </slideshow-slide>
-    {% endfor %}
 
-  
-    </slideshow-slides>
-  </slideshow-container>
-  
-</slideshow-component>
+        <div class="product-grid-view-zoom-out--details">
+          <h3 class="h4">{{ product.title }}</h3>
+        </div>
 
-</a>
-  
-  
-    <div class="product-badges product-badges--top-left" style="
-    --badge-border-radius: 0px;
-    --badge-font-family: var(--font-accent--family); --badge-font-weight: var(--font-accent--weight); --badge-text-transform: uppercase;
-  "></div>
+        <div
+          class="
+            group-block
+            group-block--height-fit
+            group-block--width-fill
+            border-style
+            spacing-style
+            size-style`1
+          "
+          style="
+                --border-width: 1px; --border-style: none; --border-color:
+            rgb(var(--color-border-rgb) / 1.0); --border-radius:
+            0px;
 
+                --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
+                --size-style-width: 100%;--size-style-height: fit;--size-style-width-mobile: 100%; --size-style-width-mobile-min: 5rem;
+          "
+          data-testid="group-block"
+        >
+          <div class="group-block__media-wrapper"></div>
 
+          <div
+            class="
+              group-block-content
 
-    
-      
+              layout-panel-flex--column
+               mobile-column
+            "
+            style="
+              --flex-direction: column; --flex-wrap: nowrap; --flex-wrap-mobile: wrap;
 
-<quick-add-component class="quick-add color-scheme-1 " ref="quickAdd" data-product-title="{{ product.title }}">
-  <product-form-component data-section-id="card2ttt" data-product-id="{{ product.id }}" on:submit="/handleSubmit" class="
-      quick-add__product-form-component
-       quick-add__product-form-component--multi-option 
-       quick-add__product-form-component--multi-variant 
-    ">
-    <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div><form method="post" action="/cart/add" id="QuickAdd-ProductForm-8600702943370-ARnFjSmxBQUNIbGpwT__card-gallery" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form"><input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="id" ref="variantId" value="{{ product.variants.first.id }}">
-      <input type="hidden" name="quantity" value="1">
-      
-<button class="button quick-add__button quick-add__button--choose" type="button" name="add" on:click="quick-add-component/handleClick">
-          <span class="add-to-cart-text">
-            <span class="svg-wrapper add-to-cart-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="var(--icon-stroke-width)" d="M16.608 9.421V6.906H3.392v8.016c0 .567.224 1.112.624 1.513.4.402.941.627 1.506.627H8.63M8.818 3h2.333c.618 0 1.212.247 1.649.686a2.35 2.35 0 0 1 .683 1.658v1.562H6.486V5.344c0-.622.246-1.218.683-1.658A2.33 2.33 0 0 1 8.82 3"></path><path stroke="currentColor" stroke-linecap="round" stroke-width="var(--icon-stroke-width)" d="M14.608 12.563v5m2.5-2.5h-5"></path></svg>
-</span>
-            <span class="add-to-cart-text__content is-visually-hidden-mobile">
-              Add
-            </span>
-          </span>
-        </button><input type="hidden" name="product-id" value="{{ product.id }}"><input type="hidden" name="section-id" value="card2ttt"></form></product-form-component>
-</quick-add-component>
-  
+              --gap: 4px;
 
-</div>
+              --horizontal-alignment: flex-start; --vertical-alignment: center;
+              --vertical-alignment-mobile: center;
+            "
+          >
+            <a class="contents user-select-text" ref="productTitleLink" href="{{ product.url }}">
+              <div
+                class="spacing-style text-block h5"
+                style="
+                  --padding-block-start: 0px; --padding-block-end:0px;
+                  --padding-inline-start:0px; --padding-inline-end:0px;
+                  --color: var(--color-foreground);
+                  --width: fit-content;
+                  --max-width: var(--max-width--body-normal);
+                "
+              >
+                <p>{{ product.title }}</p>
+              </div>
+            </a>
 
+            <product-price
+              class="text-block text-block--align-left text-left h6 spacing-style"
+              data-block-id=""
+              data-product-id="{{ product.id }}"
+              style="
+                --color: var(--color-foreground);
+                --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
+                --width: 100%;
+              "
+            >
+                {% render 'price',
+                  show_unit_price: true,
+                  product_resource: product,
+                  show_sale_price_first: true
+                %}
 
-<div class="product-grid-view-zoom-out--details">
-  
-    <h3 class="h4">{{ product.title }}</h3>
-  
-</div>
-
-
-<div class="
-    group-block
-    group-block--height-fit
-    group-block--width-fill
-    border-style
-    spacing-style
-    size-style
-    
-  " style="
-    --border-width: 1px; --border-style: none; --border-color:
-rgb(var(--color-border-rgb) / 1.0); --border-radius:
-0px; 
-
-    --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
-    --size-style-width: 100%;--size-style-height: fit;--size-style-width-mobile: 100%; --size-style-width-mobile-min: 5rem;
-    
-  " data-testid="group-block"><div class="group-block__media-wrapper">
-    
-
-    
-  </div>
-
-  <div class="
-      group-block-content
-      
-      layout-panel-flex--column
-       mobile-column
-    " style="--flex-direction: column; --flex-wrap: nowrap; --flex-wrap-mobile: wrap;
-
---gap: 4px;
-
---horizontal-alignment: flex-start; --vertical-alignment: center;
---vertical-alignment-mobile: center;
-">
-  
-  <a class="contents user-select-text" ref="productTitleLink" href="{{ product.url }}">
-
-
-  <div class=" spacing-style text-block h5
-    
-  " style="
-    --padding-block-start: 0px; --padding-block-end:0px; 
---padding-inline-start:0px; --padding-inline-end:0px; 
-
-    
---color: var(--color-foreground);
-    --width: fit-content;
-    --max-width: var(--max-width--body-normal);
-    
-    
-  ">
-    <p>{{ product.title }}</p>
-  </div>
-
-  </a>
-
-
-<product-price class="text-block text-block--align-left text-left h6 spacing-style" data-block-id="" data-product-id="{{ product.id }}" style="
-    
---color: var(--color-foreground);
-    --padding-block-start: 0px;--padding-block-end: 0px;--padding-inline-start: 0px;--padding-inline-end: 0px;
-    --width: 100%;
-  ">
-  <div ref="priceContainer">
-  
-
-  
-    <span class="price">{{ product.price | money_with_currency }}</span>
-  
-
-  
-</div>
-
-
-  
-</product-price>
-
-
-
-
-
-
-
-</div>
-</div>
-
-
-
-
-
-
-
-  </div>
-</product-card>
-</product-card-link>
-
+            </product-price>
+          </div>
+        </div>
+      </div>
+    </product-card>
+  </product-card-link>
 </div>
