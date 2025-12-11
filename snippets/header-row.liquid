@@ -94,7 +94,7 @@
                       ref="searchInput"
                       on:input="/search"
                       on:keydown="/onSearchKeyDown"
-                      style="padding-bottom: 10px;"
+                      style="padding-bottom: 10px; transition: placeholder 0.3s ease-in-out;"
                     >
                     <input name="options[prefix]" type="hidden" value="last">
                     <button
@@ -138,32 +138,42 @@
                       this.blinkCounter = 0;
                       this.animationFrameId = 0;
                       this.animationActive = false;
+
+                      // Initial placeholder setup
                       this.input.setAttribute('placeholder', this.curPlaceholder);
 
+                      // Switch to the next placeholder after a timeout
                       this.switch = (timeout) => {
                         this.input.classList.add('imitatefocus');
                         setTimeout(() => {
                           this.input.classList.remove('imitatefocus');
-                          if (this.curTextNum == 0) this.input.setAttribute('placeholder', this.defaultPlaceholder);
-                          else this.input.setAttribute('placeholder', this.curPlaceholder);
+                          if (this.curTextNum == 0) {
+                            this.input.setAttribute('placeholder', this.defaultPlaceholder);
+                          } else {
+                            this.input.setAttribute('placeholder', this.curPlaceholder);
+                          }
 
+                          // Ensure the new placeholder appears after the timeout
                           setTimeout(() => {
                             this.input.setAttribute('placeholder', this.curPlaceholder);
-                            if (this.animationActive)
+                            if (this.animationActive) {
                               this.animationFrameId = window.requestAnimationFrame(this.animate);
+                            }
                           }, timeout);
                         }, timeout);
                       };
 
+                      // Animation logic for typing effect
                       this.animate = () => {
                         if (!this.animationActive) return;
                         let curPlaceholderFullText = this.texts[this.curTextNum];
                         let timeout = 900;
+
                         if (this.curPlaceholder == curPlaceholderFullText + '|' && this.blinkCounter == 3) {
                           this.blinkCounter = 0;
                           this.curTextNum = this.curTextNum >= this.texts.length - 1 ? 0 : this.curTextNum + 1;
                           this.curPlaceholder = '|';
-                          this.switch(3000);
+                          this.switch(3000); // Pause before switching text
                           return;
                         } else if (this.curPlaceholder == curPlaceholderFullText + '|' && this.blinkCounter < 3) {
                           this.curPlaceholder = curPlaceholderFullText;
@@ -178,17 +188,21 @@
                               .join('') + '|';
                           timeout = 60;
                         }
+
+                        // Update the placeholder with smoother transitions
                         this.input.setAttribute('placeholder', this.curPlaceholder);
                         setTimeout(() => {
                           if (this.animationActive) this.animationFrameId = window.requestAnimationFrame(this.animate);
                         }, timeout);
                       };
 
+                      // Stop the animation
                       this.stop = () => {
                         this.animationActive = false;
                         window.cancelAnimationFrame(this.animationFrameId);
                       };
 
+                      // Start the animation
                       this.start = () => {
                         this.animationActive = true;
                         this.animationFrameId = window.requestAnimationFrame(this.animate);
@@ -197,6 +211,7 @@
                     };
 
                     let aw = new animationWorker(input, texts).start();
+
                     input.addEventListener('focus', (e) => aw.stop());
                     input.addEventListener('blur', (e) => {
                       aw = new animationWorker(input, texts);
